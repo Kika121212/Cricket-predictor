@@ -1,4 +1,8 @@
-import streamlit as st import pandas as pd import numpy as np import xgboost as xgb from sklearn.model_selection import train_test_split from sklearn.metrics import mean_absolute_error
+import streamlit as st 
+import pandas as pd 
+import numpy as np 
+import xgboost as xgb from sklearn.model_selection 
+import train_test_split from sklearn.metrics import mean_absolute_error
 
 st.set_page_config(page_title="Advanced Cricket AI Predictor", layout="wide") st.title("Cricket Score Prediction Tool (Innings 1 & 2) - Advanced ML")
 
