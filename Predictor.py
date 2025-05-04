@@ -68,8 +68,8 @@ if uploaded_file:
         st.success(f"To Defend Well, Target Should Be ~ {int(pred_score + 10)}")
 
     elif innings_choice == 2:
-        team1 = st.selectbox("1st Innings Batting Team", sorted(df["batting_team"].unique()))
-        team2 = st.selectbox("1st Innings Bowling Team", sorted(df["bowling_team"].unique()))
+        team1 = st.selectbox("1st Innings Batting Team", sorted(df["Batting Team"].unique()))
+        team2 = st.selectbox("1st Innings Bowling Team", sorted(df["Bowling Team"].unique()))
         score = st.number_input("1st Innings Score", min_value=0, value=160)
         wickets = st.number_input("1st Innings Wickets", min_value=0, max_value=10, value=7)
         overs = st.number_input("1st Innings Overs", min_value=0.0, max_value=20.0, value=20.0, step=0.1)
@@ -81,11 +81,11 @@ if uploaded_file:
         st.write("Batting Team (2nd Innings):", team2)
         st.write("Bowling Team (2nd Innings):", team1)
 
-        venue_df = df[df["venue"] == venue]
+        venue_df = df[df["Venue"] == venue]
         wpb = venue_df["is_wicket"].sum() / len(venue_df)
 
         model = RandomForestRegressor()
-        df_model = df.groupby(["match_id", "inning", "venue", "batting_team", "bowling_team"]).agg({
+        df_model = df.groupby(["Match ID", "Innings", "Venue", "Batting Team", "Bowling Team"]).agg({
             "runs_total": "sum",
             "is_wicket": "sum"
         }).reset_index()
