@@ -32,7 +32,7 @@ if uploaded_file:
 
         # Stats
         venue_df = df[df["Venue"] == venue]
-        venue_avg_score = venue_df.groupby(["Match_ID", "Innings"])["runs_total"].sum().mean()
+        venue_avg_score = venue_df.groupby(["Match ID", "Innings"])["runs_total"].sum().mean()
         venue_wpb = venue_df["is_wicket"].sum() / len(venue_df)
 
         team_df = df[(df["batting_team"] == team1) & (df["venue"] == venue)]
