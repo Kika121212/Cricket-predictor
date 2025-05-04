@@ -38,7 +38,7 @@ if uploaded_file:
         team_df = df[(df["Batting Team"] == team1) & (df["Venue"] == venue)]
         team_avg_score = team_df.groupby("Match ID")["runs_total"].sum().mean()
 
-        form = team_df.groupby("match_id")["runs_total"].sum().rolling(5).mean().mean()
+        form = team_df.groupby("Match ID")["runs_total"].sum().rolling(5).mean().mean()
 
         st.metric("Venue Avg Score", f"{venue_avg_score:.2f}")
         st.metric("Wickets per Ball (Venue)", f"{venue_wpb:.3f}")
