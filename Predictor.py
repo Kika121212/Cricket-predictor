@@ -14,7 +14,7 @@ if uploaded_file:
     df = pd.read_csv(uploaded_file)
 
     df["runs_total"] = df["Runs"]
-    df["is_wicket"] = df["wicket_type"].notna().astype(int)
+    df["is_wicket"] = df["Dismissal Type"].notna().astype(int)
 
     st.success("Data uploaded and processed!")
 
