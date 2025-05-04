@@ -13,7 +13,7 @@ uploaded_file = st.file_uploader("Upload CSV Ball-by-Ball Data", type="csv")
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
 
-    df["runs_total"] = df["runs_batsman"] + df["runs_extras"]
+    df["runs_total"] = df["Runs"]
     df["is_wicket"] = df["wicket_type"].notna().astype(int)
 
     st.success("Data uploaded and processed!")
