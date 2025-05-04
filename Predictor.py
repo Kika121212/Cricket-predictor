@@ -35,8 +35,8 @@ if uploaded_file:
         venue_avg_score = venue_df.groupby(["Match ID", "Innings"])["runs_total"].sum().mean()
         venue_wpb = venue_df["is_wicket"].sum() / len(venue_df)
 
-        team_df = df[(df["Batting Team"] == team1) & (df["venue"] == venue)]
-        team_avg_score = team_df.groupby("match_id")["runs_total"].sum().mean()
+        team_df = df[(df["Batting Team"] == team1) & (df["Venue"] == venue)]
+        team_avg_score = team_df.groupby("Match ID")["runs_total"].sum().mean()
 
         form = team_df.groupby("match_id")["runs_total"].sum().rolling(5).mean().mean()
 
