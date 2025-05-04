@@ -24,8 +24,8 @@ if uploaded_file:
     venue = st.selectbox("Venue", venues)
 
     if innings_choice == 1:
-        team1 = st.selectbox("Batting Team", sorted(df["batting_team"].unique()))
-        team2 = st.selectbox("Bowling Team", sorted(df["bowling_team"].unique()))
+        team1 = st.selectbox("Batting Team", sorted(df["Batting Team"].unique()))
+        team2 = st.selectbox("Bowling Team", sorted(df["Bowlingteam"].unique()))
         score = st.number_input("Current Score", min_value=0, value=50)
         wickets = st.number_input("Wickets Fallen", min_value=0, max_value=10, value=2)
         overs = st.number_input("Overs Completed", min_value=0.0, max_value=20.0, value=5.0, step=0.1)
