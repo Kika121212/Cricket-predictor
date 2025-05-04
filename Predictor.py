@@ -20,7 +20,7 @@ if uploaded_file:
 
     innings_choice = st.selectbox("Select Innings", [1, 2])
 
-    venues = sorted(df["venue"].unique())
+    venues = sorted(df["Venue"].unique())
     venue = st.selectbox("Venue", venues)
 
     if innings_choice == 1:
