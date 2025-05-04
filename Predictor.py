@@ -31,7 +31,7 @@ if uploaded_file:
         overs = st.number_input("Overs Completed", min_value=0.0, max_value=20.0, value=5.0, step=0.1)
 
         # Stats
-        venue_df = df[df["venue"] == venue]
+        venue_df = df[df["Venue"] == venue]
         venue_avg_score = venue_df.groupby(["match_id", "inning"])["runs_total"].sum().mean()
         venue_wpb = venue_df["is_wicket"].sum() / len(venue_df)
 
