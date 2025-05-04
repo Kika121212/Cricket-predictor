@@ -46,7 +46,7 @@ if uploaded_file:
 
         # ML Model
         df_model = overall_venue_stats.copy()
-        df_model["wickets_per_ball"] = df_model["is_wicket"] / 120
+        df_model["wickets_per_ball"] = 120 / df_model["is_wicket"] / 
         X = df_model[["wickets_per_ball"]]
         y = df_model["runs_total"]
 
