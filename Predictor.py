@@ -35,7 +35,7 @@ if uploaded_file:
         venue_avg_score = venue_df.groupby(["Match ID", "Innings"])["runs_total"].sum().mean()
         venue_wpb = venue_df["is_wicket"].sum() / len(venue_df)
 
-        team_df = df[(df["batting_team"] == team1) & (df["venue"] == venue)]
+        team_df = df[(df["bBatting Team"] == team1) & (df["venue"] == venue)]
         team_avg_score = team_df.groupby("match_id")["runs_total"].sum().mean()
 
         form = team_df.groupby("match_id")["runs_total"].sum().rolling(5).mean().mean()
@@ -46,7 +46,7 @@ if uploaded_file:
         st.metric("Team Recent Form (5 Match Avg)", f"{form:.1f}")
 
         # Feature Engineering
-        df_model = df.groupby(["match_id", "inning", "venue", "batting_team", "bowling_team"]).agg({
+        df_model = df.groupby(["Match ID", "Innings", "Venue", "Batting Team", "Bowling Team"]).agg({
             "runs_total": "sum",
             "is_wicket": "sum"
         }).reset_index()
